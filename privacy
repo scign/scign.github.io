@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Claw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --surface: #141417;
+      --border: #232328;
+      --accent: #c8f04a;
+      --text: #e8e8ea;
+      --muted: #6b6b72;
+      --soft: #2a2a30;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--text); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .meta span {
+      color: var(--accent);
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .highlight-box {
+      background: rgba(200, 240, 74, 0.06);
+      border: 1px solid rgba(200, 240, 74, 0.2);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .highlight-box p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    ul li {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--muted);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: #3a3a42;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Claw<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Claw</a> / Privacy Policy</p>
+    <h1>Privacy<br /><em style="font-style:italic; color:var(--accent);">Policy</em></h1>
+    <p class="meta">Last updated: <span>June 2026</span></p>
+  </div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <p><strong style="color:var(--accent);">The short version:</strong> Claw does not collect, store, transmit, or retain any personal data, usage data, or any other information about you. Nothing is sent anywhere. Nothing is kept.</p>
+    </div>
+
+    <div class="section">
+      <h2>1. Who We Are</h2>
+      <p>Claw is a personal assistant application designed to help individuals manage their calendars, tasks, and reminders. This Privacy Policy describes how Claw handles — or rather, does not handle — information about the people who use it.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. No Data Collection</h2>
+      <p>Claw does not collect any personal information. This includes, but is not limited to:</p>
+      <ul>
+        <li>Your name, email address, or contact information</li>
+        <li>Your calendar entries, events, or scheduling data</li>
+        <li>Your task lists or project information</li>
+        <li>Your device identifiers or location</li>
+        <li>Your usage patterns, session activity, or interaction history</li>
+        <li>Any communications or messages you exchange with Claw</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. No Data Retention</h2>
+      <p>Claw does not retain any data between sessions. When you close the application, no record of your session, your inputs, or your data is stored anywhere — not on your device, not on any server, and not in any database operated by or on behalf of Claw.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. No Third-Party Sharing</h2>
+      <p>Because no data is collected, no data can be shared. Claw does not share, sell, rent, or disclose any information about users to any third party, because there is no such information to share.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Cookies and Tracking</h2>
+      <p>Claw does not use cookies, tracking pixels, analytics scripts, or any other tracking technologies. There is no user tracking of any kind.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Children's Privacy</h2>
+      <p>Because Claw does not collect any data from anyone, no data is collected from children either. Claw is not directed at children and does not knowingly engage with children as a target audience.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Calendar and Task Data</h2>
+      <p>Any calendar access or task management performed through Claw operates locally or through integrations you configure directly. Claw does not intercept, copy, or retain the contents of your calendars or task lists. Any data handled by third-party calendar services (such as Google Calendar or Apple Calendar) is subject to those services' own privacy policies.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Changes to This Policy</h2>
+      <p>If this Privacy Policy ever changes, the updated version will be posted here with a revised date. Because no data is collected, any changes to this policy would not affect any previously collected data — since no such data exists.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Contact</h2>
+      <p>If you have questions about this Privacy Policy, you are welcome to reach out. However, as this policy reflects the complete and straightforward reality that no data is collected or retained, there is little additional information we can provide beyond what is stated here.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Claw.</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Claw. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
