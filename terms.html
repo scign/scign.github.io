@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Claw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --surface: #141417;
+      --border: #232328;
+      --accent: #c8f04a;
+      --text: #e8e8ea;
+      --muted: #6b6b72;
+      --soft: #2a2a30;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--text); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .meta span { color: var(--accent); }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .highlight-box {
+      background: rgba(200, 240, 74, 0.06);
+      border: 1px solid rgba(200, 240, 74, 0.2);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .highlight-box p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    ul li {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--muted);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .disclaimer-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .disclaimer-box p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: #3a3a42;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Claw<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Claw</a> / Terms of Service</p>
+    <h1>Terms of<br /><em style="font-style:italic; color:var(--accent);">Service</em></h1>
+    <p class="meta">Last updated: <span>June 2026</span></p>
+  </div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <p><strong style="color:var(--accent);">The short version:</strong> Using Claw creates no contract, no obligation, and no relationship of any kind between you and Claw. No service is offered, promised, or implied. Use it as-is, with no expectations on either side.</p>
+    </div>
+
+    <div class="section">
+      <h2>1. No Contract Is Formed</h2>
+      <p>Your use of Claw does not create a contract, agreement, or any legally binding relationship between you and Claw or its developers. These Terms of Service are provided for informational purposes only and do not constitute a service agreement, end-user license agreement, or any other form of contractual arrangement.</p>
+      <p>By using Claw, you acknowledge and agree that no contract of any kind is formed as a result of your use of the application.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. No Service Is Offered</h2>
+      <p>Claw is not a service. No service is offered, sold, licensed, or provided through Claw. This explicitly includes the absence of:</p>
+      <ul>
+        <li>Payment processing or paid tiers of any kind</li>
+        <li>Customer support or technical assistance</li>
+        <li>Guaranteed uptime, availability, or functionality</li>
+        <li>Software updates, bug fixes, or ongoing development</li>
+        <li>Feature additions or enhancements</li>
+        <li>Data backup, recovery, or continuity</li>
+        <li>Security guarantees or data protection assurances</li>
+        <li>Integration support with third-party services</li>
+        <li>Training, documentation, or onboarding assistance</li>
+        <li>Any form of user assistance whatsoever</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. No Warranties</h2>
+      <p>Claw is provided strictly on an "as-is" and "as-available" basis, without any warranty of any kind, express or implied.</p>
+
+      <div class="disclaimer-box">
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, CLAW AND ITS DEVELOPERS EXPRESSLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. NO WARRANTY IS MADE THAT CLAW WILL MEET YOUR REQUIREMENTS, OPERATE WITHOUT INTERRUPTION, OR BE ERROR-FREE.</p>
+      </div>
+
+      <p>You use Claw entirely at your own risk.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. No Liability</h2>
+      <p>To the fullest extent permitted by law, Claw and its developers shall not be liable for any damages of any kind arising out of or in connection with your use — or inability to use — Claw. This includes, without limitation:</p>
+      <ul>
+        <li>Direct, indirect, incidental, or consequential damages</li>
+        <li>Loss of data, missed appointments, or scheduling errors</li>
+        <li>Any harm resulting from reliance on Claw's reminders or output</li>
+        <li>Any loss arising from Claw's unavailability or malfunction</li>
+      </ul>
+      <p>This limitation applies regardless of the theory of liability and even if Claw has been advised of the possibility of such damages.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. No Payments</h2>
+      <p>Claw does not accept payments of any kind. There are no fees, subscriptions, purchases, or financial transactions associated with Claw. No payment infrastructure exists, and you should never provide payment information in connection with Claw.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. No Support</h2>
+      <p>Claw offers no technical support, help desk, community forum, documentation portal, or any other form of assistance. If Claw does not work as you expect, or stops working entirely, there is no support channel to contact and no remedy available through Claw.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. No Updates or Maintenance</h2>
+      <p>There is no commitment to update, maintain, patch, or continue operating Claw in any capacity. Claw may change, degrade, or become unavailable at any time, for any reason, without notice. You have no right to any particular version, feature set, or continued operation of Claw.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Third-Party Services</h2>
+      <p>If Claw interacts with third-party services — such as calendar platforms — those services are governed by their own terms and conditions. Claw makes no representations about those services and assumes no responsibility for their behavior, availability, or compliance with your expectations.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Changes to These Terms</h2>
+      <p>These Terms may be updated at any time without notice. The current version will always be available at this URL. Continued use of Claw after changes are posted does not imply your acceptance of the updated terms — because, as stated above, no contract is formed by your use of Claw under any circumstances.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Governing Law</h2>
+      <p>To the extent any legal dispute ever arises in connection with Claw — though none is anticipated given that no service, payment, or contractual relationship exists — such matters shall be governed by applicable law without regard to conflict-of-law principles.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Entire Understanding</h2>
+      <p>These Terms represent the complete understanding between you and Claw with respect to its use. No oral or written statement, representation, or promise made outside of this document shall modify or supplement these Terms. No course of dealing or prior practice shall give rise to any expectation of service, support, or obligation on the part of Claw.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Claw.</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Claw. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
